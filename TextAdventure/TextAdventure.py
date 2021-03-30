@@ -28,7 +28,7 @@ def debugMainMenu():
         elif response == "2":
             debugMenuViewStats()
         elif response == "3":
-            debugMenuTraverseLocations()
+            debugMenuTraverseLocation()
         elif response == "4":
             break
 
@@ -94,7 +94,7 @@ def debugMenuViewStats():
         elif response == "9":
             break
 
-def debugMenuTraverseLocations():
+def debugMenuTraverseLocation():
     while True:
         print ("""
             1. Start
@@ -106,11 +106,11 @@ def debugMenuTraverseLocations():
         """)
         response = input("Selct 1 through 5\n")
         if response == "1":
-            print("to Implement")
+            debugMenuTraverseLocationStart()
         elif response == "2":
-            print("to Implement")
+            player.reportCurrentLocation()
         elif response == "3":
-            print("to Implement")
+            player.travelToRandomLocation()
         elif response == "4":        
             print("to Implement")
         elif response == "5":
@@ -118,7 +118,7 @@ def debugMenuTraverseLocations():
         elif response == "6":
             break
 
-def debugMenuTraverseLocationsStart():
+def debugMenuTraverseLocationStart():
     while True:
         print ("""
             1. First Start
@@ -131,17 +131,17 @@ def debugMenuTraverseLocationsStart():
         """)
         response = input("Selct 1 through 7\n")
         if response == "1":
-            player.triggerLocationTraitAdd("FirstStart")
+            player.travelToLocation("FirstStart")
         elif response == "2":
-            player.triggerLocationTraitAdd("SecondStart")
+            player.travelToLocation("SecondStart")
         elif response == "3":
-            player.triggerLocationTraitAdd("ThirdStart")
+            player.travelToLocation("ThirdStart")
         elif response == "4":
-            player.triggerLocationTraitAdd("FourthStart")
+            player.travelToLocation("FourthStart")
         elif response == "5":
-            player.triggerLocationTraitAdd("FifthStart")
+            player.travelToLocation("FifthStart")
         elif response == "6":
-            player.triggerLocationTraitAdd("SixthStart")
+            player.travelToLocation("SixthStart")
         break
 
 # Initialize game values

@@ -1,3 +1,5 @@
+import random
+
 class Traversal:
     def __init__(self, roomsDict, startingDict):
         self.locationDict = roomsDict.copy()
@@ -9,33 +11,36 @@ class Traversal:
         self.currentLocation = "Start"
 
     def addToVisited(self, location):
-        self.visitedLocationsDict.append(location)
+        self.visitedLocationsDict.update({location: self.locationDict[location]})
 
     def RemovefromVisited(self, location): #debug function
-        self.visitedLocationsDict.pop(location)
+        if location in self.visitedLocationsDict:
+            self.visitedLocationsDict.pop(location)
 
     def addToAccessible(self, location):
-        self.accessibleLocationsDict.append(location)
+        self.accessibleLocationsDict.update({location: self.locationDict[location]})
     
     def removeFromAccessible(self, location):
-        self.accessibleLocationsDict.pop(location)
+        if location in self.accessibleLocationsDict:
+            self.accessibleLocationsDict.pop(location)
 
     def addToInaccessible(self, location): #debug function
-        self.inaccessibleLocationsDict.append(location)
+        self.inaccessibleLocationsDict.update({location: self.locationDict[location]})
 
     def removeFromInaccessible(self, location):
-        self.inaccessibleLocationsDict.pop(location)
+        if location in self.inaccessibleLocationsDict:
+            self.inaccessibleLocationsDict.pop(location)
 
     def updateAccess(self, traitDict):
         for location in self.inaccessibleLocationsDict.values():
             if self.traitDict[location.prerequisite].value == True:
-                addToAccessible(location)
-                removeFromInaccessible(location)
+                self.addToAccessible(location)
+                self.removeFromInaccessible(location)
 
     def updateVisited(self, currentLocation):
-        removeFromAccessible(currentLocation)
-        addToVisited(currentLocation)
+        self.removeFromAccessible(currentLocation)
+        self.addToVisited(currentLocation)
 
     def getAccessibleLocation(self):
-        _location = random.choice(list(accessibleLocationsDict.values()))
+        _location = random.choice(list(self.accessibleLocationsDict.values()))
         return _location.name

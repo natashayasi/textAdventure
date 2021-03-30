@@ -4,7 +4,7 @@ class Player:
         self.traitDict = trait
         self.counterDict = counter
         self.travels = traversal
-        self.currentLocation = ""
+        self.currentLocation = "Start"
 
     def setTraitTrue(self, traitName):
         if traitName in self.traitDict:
@@ -23,21 +23,35 @@ class Player:
             self.counterDict[counterName].decrement()
 
     def addRoomToVisited(self, location):
-        self.travels.visitedLocationsDict.append(location)
+        self.travels.addToVisited(location)
 
     def addRoomToAccessible(self, location):
-        self.travels.accessibleLocationsDict.append(location)
+        self.travels.addToAccessible(location)
     
     def removeRoomFromAccessible(self, location):
-        self.travels.accessibleLocationsDict.pop(location)
+        self.travels.removeFromAccessible(location)
 
     def removeRoomFromInaccessible(self, location):
-        self.travels.inaccessibleLocationsDict.pop(location)
+        self.travels.removeFromInaccessible(location)
 
     def triggerLocationTraitAdd(self, locationName):
         self.setTraitTrue(self.travels.locationDict[locationName].trait1)
         self.setTraitTrue(self.travels.locationDict[locationName].trait2)
         self.setTraitTrue(self.travels.locationDict[locationName].trait3)
+
+    def leaveLocation(self):
+        self.travels.addToVisited(self.currentLocation)
+        self.travels.removeFromAccessible(self.currentLocation)
+
+    def travelToRandomLocation(self):
+        self.leaveLocation()
+        self.currentLocation = self.travels.getAccessibleLocation()
+        self.triggerLocationTraitAdd(self.currentLocation)
+
+    def travelToLocation(self, location):
+        self.leaveLocation()
+        self.currentLocation = location
+        self.triggerLocationTraitAdd(self.currentLocation)
 
     def reportTraitsTrue(self):     #debug function
         for trait in self.traitDict.values():
@@ -73,3 +87,5 @@ class Player:
         for location in self.travels.inaccessibleLocationsDict.values():
             print('Location: {}, Text: {}\n'.format(location.name,location.text))
 
+    def reportCurrentLocation(self):
+        print('Current Location: {}'.format(self.currentLocation))
