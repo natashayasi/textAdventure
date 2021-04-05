@@ -1,0 +1,158 @@
+Introductory Chapter
+The princes of your township have arrived. Once every ten years, they make a one-of-a-kind choice; they select an unattached individual to play modern casual “housemate” to them. That's where you come in.
+
+
+Bumper Chapter
+Welcome to and rules of the castle (game). The game is to find an ending. However you want your ten years to end is up to you. Story exposition and the princes' backgrounds go here.
+
+
+Stables and Coach House
+You want to help set the horses afield and check up on the maintenance of the castle's coaches. At the end of the day, you've contributed mightily and helped many in their duties.
+	Interactable: Caparison [Gives Town]
+
+Archery Range
+Darshil has decided it's archery challenge day. You face your fears and take a deadly weapon in hand.
+	Interactable: Bow and arrows [Gives Feral]
+
+Underwater Bedroom
+The sheen of light through water catches your eye from underneath a bedroom door. You learn about the beauty and danger of an obsession with the sea.
+	Interactables: Fish skeletons [Gives Feral]; Stained coral [Gives Seek]
+
+Military Games Room
+You find the princes playing one of many military games within a room and ask to join them. You walk away with pride in your tactical abilities or a boldness borne of having engaged in mock warfare.
+	Interactable: Military family tree [Gives Past]
+
+High Tower with “Diving Platform”
+You explore a battlement tower, finding a hoarding which is missing its outer facing. You see that the moat below you has widened close enough to the castle as to probably be jumpable...
+	Interactable: Portrait [Gives Past]
+
+Cave
+Every dusk you see a cloud of bats take to the sky. One evening, you decide to try and track where it is they live. Inside, you find an elderly professional who proudly ages all of the cheeses for the next nearest town.
+	Interactables: Bat [Gives Feral]; Town insignia [Gives Town]
+
+Fruit Orchard
+When you hear the castle crew are heading out to harvest the nearby fruit orchards, you insist on going along to help. In doing so, you either grow closer to the castle staff or get caught up in reminisces of home.
+	Interactables: Apple cart [Gives Town]; Berry basket [Gives Castle]
+
+Apiary and Sericulture Hut
+Wondering why there are always so many bees near the rear outer wall, you take a trip outside to find a storehouse filled with silkworms as well as an apiary. You face your fears and eventually end up bonding with the creepy crawlies.
+	Interactable: Silkworm cocoons [Gives Feral]
+
+Secret Passage Behind Bookcase
+After noticing a section of shelving was weird in the poetry library, you discover a hidden staircase down into a tiny reading room. Once there, you and Ragnar share gentle stories of your homes.
+	Interactable: Chest of robes [Gives Past]
+
+Wine and Spirits Cellar
+Winter is truly persisting this year, and you're past ready for a break. You set one of the coaches up and deliver wine or spirits to every home in the town who will take some after making sure everyone in the castle is provided for.
+	Interactable: Your empty home [Gives Town]
+
+Nook Kitchen
+You have come to realize just how little time you have solely to yourself in the castle. You choose to make either a recipe from home or of something one of the cooks in the castle has taught you. Boldly, you make enough to offer to the princes when you're finished.
+	Interactables: Spices [Gives Town]; Exotic meat [Gives Castle]
+
+Town Administrator Bedroom
+You want to know more about how your hometown is overseen and run. After learning more, you think you might be able to step into a Town Executor position yourself.
+	Interactable: Town ledger [Gives Town]
+
+Art Studio
+You're full of motivation and want to express yourself. You end with a feeling of either wanting to improve your own abilities or a desire to challenge the haughty perfectionism of the castle's previous owners.
+	Interactables: Paints [Gain Seek]; Locked chest [Gain Past]
+
+Vegetable Garden
+You discover a massive, still productive, if slightly overgrown, mini-farm behind the keep. After a couple days worth of hard work, you pull it back to lovely and set it up to be prosperous.
+	Interactables: Label stakes [Gives Castle]; Bushel [Gives Town]
+
+Games Yard
+Feeling highly accomplished, you start rifling through one of the storerooms to find something to reward yourself with. After a long day of lawn games with the whole castle crew, you find yourself wondering if you will ever want to leave.
+	Interactable: Bucket of water [Gives Castle]
+
+Non-Fiction Library
+The princes have gotten into yet another vapid fight about nothing, but the subject of their fight has you actually wanting to learn some stuff about it. You all get your answers, but you end up feeling that even with all of the possible knowledge collected in this library, there is far more to learn of.
+	Interactable: Giant tome of world maps [Gain Seek]
+
+Jewels Bedroom
+You're budding with pride at being the princes' housemate when you come across the jewel bedroom. Suddenly having all of that material wealth around and being impressed upon by the status it causes, causes you to want to up your game that you're actually contributing.
+	Interactables: The Serpent Ruby [Gives Past]; Bag of pearls [Gives Town]
+
+Music Room
+You long to hear some of the songs that you remember from your time living in the town. The music you get to experience may make you long for the town more, or for the ability to reproduce it yourself.
+	Interactables: Box of sheet music [Gives Town]; Conductor's score [Gives Seek]
+
+Production Kitchen
+You head into the big kitchen, absolutely sure that you can be a big help. You receive a serious shock surrounding what it truly is to run a kitchen which feeds a massive estate.
+	Interactable: Empty plates [Gives Seek]
+
+Bats and Potions Bedroom
+When you see the room filled with spellbooks and occultic ornaments, your first thoughts are dismissive and unimpressed. After investigating more into the contents of the room, particularly in connection with the princes' curse, your opinion starts to shift.
+	Interactables: Occult tome [Gives Seek]; Scroll with handwritten notes [Gives Past]
+
+Fiction Library
+You've been burning through fiction books lately, so it's time for a resupply. Discussing stories with Darshil gets your mind racing and builds a craving for adventure.
+	Interactable: Contact information of a publisher [Gives Seek]
+
+Kitchen Recipe Room
+Hoping to find a majestic recipe that you can fix for yourself, you end up sharing and preserving some of your own recipes instead.
+	Interactable: Castle recipe box [Gives Seek]
+
+Hedge Maze
+You charge blindly into the hedge maze that the servants have been carefully cultivating for years outside of the outer walls. You find warm benches surrounded by flowers that can be used for reading and a bench of a much longer length that can be used for catching rays.
+	Interactable: Your own clothing (removed) [Gives Feral]
+
+Poetry Library
+You're looking for a good and painfully sappy collection of words. In the poetry library, you find what you're looking for plus a whole bunch of other types of poetry and linguistic expression that you had no idea existed.
+	Interactable: Most worn volume [Gives Past]
+
+Gallows Renovated into a Tiny Stage
+A dirth of rather morbid curiosity drives you to find out what is on the subterranean floor of the keep. The thrill of theatricality drives you to want to learn and experience more like that.
+	Interactable: Trapdoor [Gives Castle]
+
+Casual Games Room
+You've always thought yourself rather good at games and are thrilled to find a place and partners to test yourself. You learn the value of losing and enjoying yourself along the way.
+	Interactable: Embroidered quilt [Gives Castle]
+
+Armor Room
+You're wondering what war is and was like and whether or not you could have handled it. After learning that everyone must play their part and can contribute in non-warring ways, you come to appreciate the armor for more what it represents than what it is.
+	Interactable: Suit of armor [Gives Feral]
+
+Fireplace Lounge
+The three of you share time reading together. Eventually conversation opens up and you end up feeling a bit more like you really wish to care for the princes.
+	Interactable: Serving bell [Gives Castle]; Architectural plans [Gives Seek]
+
+Fish Supply House and Hatchery
+Scared from recent distant political events, you find the fish house with frayed nerves. Caring for and hearing about the fish are able to readjust your outlook to be more focused on learning first before simply reacting.
+	Interactables: Preserved fish eggs [Gives Town]; Basket of adult fish [Gives Castle]
+
+Observatory
+You come upon the observatory when wondering one night if there is anything out in the night's sky that is akin to your experience here on earth. Instead of finding answers, you find gratitude that you've gotten to experience what you have.
+	Interactables: Birth charts [Gives Castle]; Star map with handwriting [Gives Past]
+
+Under the Trees Bedroom
+You find a bedroom which is the perfect manifestation of a calm walk under a grove of trees. You come away with questions about man's place in the natural world and where you might one day stand within it.
+	Interactable: Patch of moss [Gives Seek]
+
+Hunting Bedroom
+You investigate a bedroom that has many hunting trophies within it. You face death square in the face and don't flinch.
+	Interactable: Stuffed trophy [Gives Feral]
+
+Hot Spring
+It's a bitingly cold day, and you've heard mention of a warm and wonderful hot spring at a far distant end of the castle grounds. Though you're intimidated by your escorts, you ford into the waters. You even end up learning how to help bathe a snake and a spider.
+	Interactables: Gigantic animals [Gives Feral]; Princes' lockets [Gives Castle]
+
+Seek Ending
+You leave to pursue further study and simultaneously investigate what might have gone down at the castle all those hundreds of years ago.
+
+
+Town Ending
+You return to your little house in the little town, satisfied that you did your duty and with a vast array of interesting memories from your ten years at the castle.
+
+
+Castle Ending
+You decide not to leave when the ten-year tenure is up, too comfortable and happy living castle life.
+
+
+Feral Ending
+You have helped the princes to embrace their "wilder" sides, changing the curse in such a way that they can become human or animal whenever they want.
+
+
+Past Ending
+You have fully dived into the mysterious and terrible past of the princes before, finding both the causes for and the ways to break your princes' curses.

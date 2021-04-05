@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Counter.py" />
+    <Compile Include="Interactable.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Location.py" />
     <Compile Include="Player.py" />
     <Compile Include="TextAdventure.py" />

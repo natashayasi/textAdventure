@@ -1,46 +1,90 @@
 import random
 
+from Counter import Counter
+from Interactable import Interactable
+from Location import Location
+from Trait import Trait
+
 class Traversal:
-    def __init__(self, roomsDict, startingDict):
-        self.locationDict = roomsDict.copy()
-        self.locationDict.update(startingDict) #might cause an issue if the roomsDict is changed
-        self.startingLocationsDict = startingDict.copy()
-        self.visitedLocationsDict = {}
-        self.accessibleLocationsDict = {}
-        self.inaccessibleLocationsDict = roomsDict.copy()
-        self.currentLocation = "Start"
+    def __init__(self):
+        self.locationDictionary = {}
+        self.currentLocationName = "Start"
+        self.visitedLocationNameList = []
+        self.accessibleLocationNameList = []
+        self.inaccessibleLocationNameList = []
+        self.setupTraversal
 
-    def addToVisited(self, location):
-        self.visitedLocationsDict.update({location: self.locationDict[location]})
+    def setupTraversal(self):
+        for location in self.locationDictionary:
+            self.inaccessibleLocationNameList.append(location.name)
 
-    def RemovefromVisited(self, location): #debug function
-        if location in self.visitedLocationsDict:
-            self.visitedLocationsDict.pop(location)
+    def addToVisitedLocationNameList(self, locationName):
+        if locationName not in self.visitedLocationNameList:
+            self.visitedLocationNameList.append(locationName)
 
-    def addToAccessible(self, location):
-        self.accessibleLocationsDict.update({location: self.locationDict[location]})
+    def addToAccessibleLocationNameList(self, locationName):
+        if locationName not in self.accessibleLocationNameList:
+            self.accessibleLocationNameList.append(locationName)
+
+    def addToInaccessibleLocationNameList(self, locationName):
+        if locationName not in self.inaccessibleLocationNameList:
+            self.inaccessibleLocationNameList.append(locationName)
+
+    def removeFromVisitedLocationNameList(self, locationName):
+        if locationName in self.visitedLocationNameList:
+            self.visitedLocationNameList.remove(locationName)
+
+    def removeFromAccessibleLocationNameList(self, locationName):
+        if locationName in self.accessibleLocationNameList:
+            self.accessibleLocationNameList.remove(locationName)
+
+    def removeFromInaccessibleLocationNameList(self, locationName):
+        if locationName in self.inaccessibleLocationNameList:
+            self.inaccessibleLocationNameList.remove(locationName)
+
+    def refreshTraversal(self, traitNameList):
+        if self.currentLocationName not in self.visitedLocationNameList:
+            self.visitedLocationNameList.append(self.currentLocationName)
+        for location in self.locationDictionary:
+            if location.prerequisiteTraitName in traitNameList:
+                if location.name not in self.accessibleLocationNameList:
+                    self.accessibleLocationNameList.append(location.name)
+                    if location.name in self.inaccessibleLocationNameList:
+                        self.inaccessibleLocationNameList.remove(location.name)
     
-    def removeFromAccessible(self, location):
-        if location in self.accessibleLocationsDict:
-            self.accessibleLocationsDict.pop(location)
+    def visitLocation(self, locationName):
+        if locationName in self.accessibleLocationNameList:
+            if self.currentLocationName not in self.visitedLocationNameList:
+                self.visitedLocationNameList.append(self.currentLocationName)
+            self.currentLocationName = locationName
+            return True
+        else:
+            return False
+            
+    def returnLocationTraitNameList(self, locationName):
+        _traitNameList = []
+        for location in self.locationDictionary:
+            if location.name == locationName:
+                _traitNameList = location.traitNameList
+                break
+        return _traitNameList
 
-    def addToInaccessible(self, location): #debug function
-        self.inaccessibleLocationsDict.update({location: self.locationDict[location]})
+    def getRandomLocationNameByAccessibility(self):
+        _possibleLocationNamesList = [locationName for locationName in self.accessibleLocationNameList if locationName not in self.visitedLocationNameList]
+        if _possibleLocationNamesList.count > 0:
+            _locationName = random.choice(_possibleLocationNamesList)
+            return _location.name
+        else: 
+            return "empty"
 
-    def removeFromInaccessible(self, location):
-        if location in self.inaccessibleLocationsDict:
-            self.inaccessibleLocationsDict.pop(location)
-
-    def updateAccess(self, traitDict):
-        for location in self.inaccessibleLocationsDict.values():
-            if self.traitDict[location.prerequisite].value == True:
-                self.addToAccessible(location)
-                self.removeFromInaccessible(location)
-
-    def updateVisited(self, currentLocation):
-        self.removeFromAccessible(currentLocation)
-        self.addToVisited(currentLocation)
-
-    def getAccessibleLocation(self):
-        _location = random.choice(list(self.accessibleLocationsDict.values()))
-        return _location.name
+    def getRandomLocationNameByTraitPrerequisite(self, traitName):
+        _traitAssociatedNamesList = []
+        for location in self.locationDictionary:
+            if location.prerequisiteTraitName == traitName:
+                _traitAssociatedNamesList.append(location.name)
+        _possibleLocationNamesList = [locationName for locationName in self.accessibleLocationNameList if locationName not in self.visitedLocationNameList and locationName in _traitAssociatedNamesList]
+        if _possibleLocationNamesList.count > 0:
+            _locationName = random.choice(_possibleLocationNamesList)
+            return _location.name
+        else:
+            return "empty"

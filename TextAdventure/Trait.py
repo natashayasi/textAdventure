@@ -1,8 +1,8 @@
 class Trait:
-    def __init__(self, name, text):
+    def __init__(self, name, text, value):
         self.name = name
         self.text = text
-        self.value = False
+        self.value = value
 
     def setTraitTrue(self):
         self.value = True
