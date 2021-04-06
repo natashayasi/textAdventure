@@ -112,7 +112,7 @@ class Player:
                 print("     {}".format(interactable.text))
 
     def reportInteractablesByLocation(self, locationName):     #debug function
-        if locationName in self.travels.locationDictionary.values():
+        if locationName in self.travels.locationDictionary:
             _location = self.travels.locationDictionary[locationName]
             for interactable in _location.interactablesList:
                 print(interactable.text)
