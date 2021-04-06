@@ -26,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Location.py" />
+    <Compile Include="DisplayText.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Player.py" />
     <Compile Include="TextAdventure.py" />
     <Compile Include="Trait.py" />

@@ -11,6 +11,7 @@ from Location import Location
 from Player import Player
 from Trait import Trait
 from Traversal import Traversal
+from DisplayText import displayText
 
 def debugMainMenu():
     while True:
