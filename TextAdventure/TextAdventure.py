@@ -1,6 +1,6 @@
-# [ ] Make a debug menu class
+# [x] Make a debug menu class
 # [ ] Make a story menu class
-# [ ] Accesss story text
+# [x] Accesss story text
 
 import random
 import sys
@@ -11,8 +11,11 @@ from Location import Location
 from Player import Player
 from Trait import Trait
 from Traversal import Traversal
+from DebugMenu import DebugMenu
 
-def debugMainMenu():
+
+
+def debugMainMenuOld():
     while True:
         print ("""
             1. Play Game
@@ -298,7 +301,9 @@ player.travels.locationDictionary["TreeBedroom"].interactablesList.extend([Inter
 player.travels.locationDictionary["HuntersBedroom"].interactablesList.extend([Interactable("rrophy","Stuffed trophy","Feral")])
 player.travels.locationDictionary["HotSpring"].interactablesList.extend([Interactable("giantAnimals","Gigantic animals","Feral"), Interactable("lockets","Princes' lockets","Castle")])
 
-debugMainMenu()
+DebugMenu(player)
+
+#debugMainMenuOld()
 
 #for room in roomList:
 #    print('Name : {}, Text : {}').format(room.name,room.text)
