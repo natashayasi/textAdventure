@@ -1,0 +1,48 @@
+Main Menu
+    1. Play Game
+    2. Settings
+    9. Exit
+
+Game Menu
+    1. View Current Location
+    2. Visit By Trait
+    3. Visit By Random
+    4. Visit By Name
+    5. Go Back
+    6. Go Forwards
+    9. Exit
+
+Settings Menu
+    1. Traits
+    2. Counters
+    3. Locations
+    4. Interactables
+    5. Reset Game
+    9. Exit
+
+Traits Menu
+    1. View Traits, All
+    2. View Traits, True
+    3. View Traits, False
+    4. Set Trait True
+    5. Set Trait False
+    9. Exit
+
+Counters Menu
+    1. View Counters
+    2. Increment Counter
+    3. Decrement Counter
+    9. Exit
+
+Locations Menu
+    1. View Current Location
+    2. View Locations
+    3. View Visited Locations
+    4. View Accessible Locations
+    5. View Inaccessible Locations
+    9. Exit
+
+Interactables Menu
+    1. View Interactables
+    2. View Interactables by Location
+    9. Exit 
