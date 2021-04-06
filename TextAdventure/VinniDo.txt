@@ -1,2 +1,6 @@
 What Vinni do?
 
+List of things that need doing:
+Give Location a method that calls up descriptions from text files. 
+Make called text look nice/only loads a screen at a time/presses space to progress.
+Work on Player Menu/HUD that shows: Current Location, Travel Options, Back/Forward
