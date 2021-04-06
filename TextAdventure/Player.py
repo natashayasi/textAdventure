@@ -35,7 +35,8 @@ class Player:
         return _traitNameList
 
     def refreshTraversal(self):
-        self.travels.refreshTraversal(listTraitNamesTrue())
+        _traitsTrueList = self.listTraitNamesTrue()
+        self.travels.refreshTraversal(_traitsTrueList)
 
     def updateTraitFromLocation(self, locationName):
         _traitNameList = self.travels.returnLocationTraitNameList(locationName)
@@ -51,9 +52,9 @@ class Player:
             self.travels.visitLocation(_locationName)
             self.updateTraitFromLocation(_locationName)
 
-    def travelRandomlyByTrait(self):
+    def travelRandomlyByTrait(self, traitName):
         self.refreshTraversal()
-        _locationName = self.travels.getRandomLocationNameByTraitPrerequisite()
+        _locationName = self.travels.getRandomLocationNameByTraitPrerequisite(traitName)
         if _locationName == "empty":
             print("There are no rooms left to explore with that trait. getRandomLocationNameByTraitPrerequisite returned 'empty'") #todo
         else:
@@ -67,21 +68,25 @@ class Player:
         else:
             print("Couldn't travel to {}\n".format(locationName)) #todo
 
+    def reportTraits(self):
+        for trait in self.traitDictionary.values():
+            print(trait.name)
+
     def reportTraitsTrue(self):     #debug function
         for trait in self.traitDictionary.values():
             if trait.value == True:
-                print('Trait: {} {}\n'.format(trait.name,trait.value))
+                print('Trait: {} {}'.format(trait.name,trait.value))
 
     def reportTraitsFalse(self):     #debug function
         for trait in self.traitDictionary.values():
             if trait.value == False:
-                print('Trait: {} {}\n'.format(trait.name,trait.value))
+                print('Trait: {} {}'.format(trait.name,trait.value))
 
     def reportCounters(self):        #debug function
         for counter in self.counterDictionary.values():
-            print('Counter: {} - {}\n'.format(counter.name,counter.counter))
+            print('Counter: {} - {}'.format(counter.name,counter.counter))
 
-    def reportLocationDict(self):     #debug function
+    def reportLocations(self):     #debug function
         for location in self.travels.locationDictionary.values():
             print('Location: {}, Text: {}\n'.format(location.name,location.text))
 
@@ -89,16 +94,27 @@ class Player:
         for location in self.travels.visitedLocationNameList:
             print('Location: {}'.format(location))
 
-    def reportAccessibleLocationsDict(self):     #debug function
+    def reportAccessibleLocations(self):     #debug function
         for location in self.travels.accessibleLocationNameList:
             print('Location: {}'.format(location))
 
-    def reportInaccessibleLocationsDict(self):     #debug function
+    def reportInaccessibleLocations(self):     #debug function
         for location in self.travels.inaccessibleLocationNameList:
             print('Location: {}'.format(location))
 
-    def reportCurrentLocation(self):
-        print('Current Location: {}'.format(self.travels.currentLocation))
+    def reportCurrentLocation(self):     #debug function
+        print('Current Location: {}'.format(self.travels.currentLocationName))
 
+    def reportInteractables(self):     #debug function
+        for location in self.travels.locationDictionary.values():
+            print(location.text)
+            for interactable in location.interactablesList:
+                print("     {}".format(interactable.text))
 
-
+    def reportInteractablesByLocation(self, locationName):     #debug function
+        if locationName in self.travels.locationDictionary.values():
+            _location = self.travels.locationDictionary[locationName]
+            for interactable in _location.interactablesList:
+                print(interactable.text)
+        else:
+            print("{} isn't in the locationDictionary".format(locationName))

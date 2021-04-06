@@ -15,7 +15,7 @@ class Traversal:
         self.setupTraversal
 
     def setupTraversal(self):
-        for location in self.locationDictionary:
+        for location in self.locationDictionary.values():
             self.inaccessibleLocationNameList.append(location.name)
 
     def addToVisitedLocationNameList(self, locationName):
@@ -45,7 +45,7 @@ class Traversal:
     def refreshTraversal(self, traitNameList):
         if self.currentLocationName not in self.visitedLocationNameList:
             self.visitedLocationNameList.append(self.currentLocationName)
-        for location in self.locationDictionary:
+        for location in self.locationDictionary.values():
             if location.prerequisiteTraitName in traitNameList:
                 if location.name not in self.accessibleLocationNameList:
                     self.accessibleLocationNameList.append(location.name)
@@ -60,31 +60,36 @@ class Traversal:
             return True
         else:
             return False
-            
+
+    def visitLocationCheat(self, locationName):
+        if self.currentLocationName not in self.visitedLocationNameList:
+            self.visitedLocationNameList.append(self.currentLocationName)
+        self.currentLocationName = locationName 
+        
     def returnLocationTraitNameList(self, locationName):
         _traitNameList = []
-        for location in self.locationDictionary:
+        for location in self.locationDictionary.values():
             if location.name == locationName:
-                _traitNameList = location.traitNameList
+                _traitNameList = location.traitNameList.copy()
                 break
         return _traitNameList
 
     def getRandomLocationNameByAccessibility(self):
         _possibleLocationNamesList = [locationName for locationName in self.accessibleLocationNameList if locationName not in self.visitedLocationNameList]
-        if _possibleLocationNamesList.count > 0:
+        if len(_possibleLocationNamesList) > 0:
             _locationName = random.choice(_possibleLocationNamesList)
-            return _location.name
+            return _locationName
         else: 
             return "empty"
 
     def getRandomLocationNameByTraitPrerequisite(self, traitName):
         _traitAssociatedNamesList = []
-        for location in self.locationDictionary:
+        for location in self.locationDictionary.values():
             if location.prerequisiteTraitName == traitName:
                 _traitAssociatedNamesList.append(location.name)
         _possibleLocationNamesList = [locationName for locationName in self.accessibleLocationNameList if locationName not in self.visitedLocationNameList and locationName in _traitAssociatedNamesList]
-        if _possibleLocationNamesList.count > 0:
+        if len(_possibleLocationNamesList) > 0:
             _locationName = random.choice(_possibleLocationNamesList)
-            return _location.name
+            return _locationName
         else:
             return "empty"
