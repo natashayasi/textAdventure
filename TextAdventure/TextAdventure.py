@@ -15,6 +15,7 @@ from DisplayText import displayText
 
 def debugMainMenu():
     while True:
+        displayText("Wine_Cellar")
         print ("""
             1. Play Game
             2. Edit Variables
