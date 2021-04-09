@@ -1,0 +1,18 @@
+
+Traversal Generic Interactables
+    def checkInteractableExists(self, locationName, interactableName):
+        exists = False
+        for interactable in self.locationDictionary[locationName].interactablesList:
+            if interactable.name == interactableName:
+                exists = True
+        return exists
+
+    def touchInteractable(self, locationName, interactableName):
+        if self.checkInteractableExists(locationName, interactableName):
+            self.locationDictionary[locationName].touchInteractable(interactableName)
+
+    def getInteractableCounterName(self, locationName, interactableName):
+        counterName = ""
+        if self.checkInteractableExists(locationName, interactableName):
+            counterName = self.locationDictionary[locationName].getInteractableCounterName(interactableName)
+        return counterName

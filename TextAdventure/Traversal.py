@@ -57,15 +57,37 @@ class Traversal:
             if self.currentLocationName not in self.visitedLocationNameList:
                 self.visitedLocationNameList.append(self.currentLocationName)
             self.currentLocationName = locationName
+            self.displayLocation(self.currentLocationName)
             return True
         else:
             return False
 
-    def visitLocationCheat(self, locationName):
-        if self.currentLocationName not in self.visitedLocationNameList:
-            self.visitedLocationNameList.append(self.currentLocationName)
-        self.currentLocationName = locationName 
-        
+    def displayLocation(self, locationName):
+        self.locationDictionary[locationName].displayLocationText()
+        availableInteractables = self.locationDictionary[locationName].listAvailableInteractables()
+        if len(availableInteractables) > 0:
+            print("For Debug Only: ")
+            for interactable in availableInteractables:
+                print('Interactable Object: {}'.format(interactable.name))
+
+    def checkInteractableExists(self, interactableName):
+        exists = False
+        for interactable in self.locationDictionary[self.currentLocationName].interactablesList:
+            if interactable.name == interactableName:
+                exists = True
+        return exists
+
+    def touchInteractable(self, interactableName):
+        if self.checkInteractableExists(interactableName):
+            self.locationDictionary[self.currentLocationName].touchInteractable(interactableName)
+
+    def getInteractableCounterName(self, interactableName):
+        counterName = ""
+        if self.checkInteractableExists(interactableName):
+            counterName = self.locationDictionary[self.currentLocationName].getInteractableCounterName(interactableName)
+        return counterName
+
+
     def returnLocationTraitNameList(self, locationName):
         _traitNameList = []
         for location in self.locationDictionary.values():
@@ -93,3 +115,4 @@ class Traversal:
             return _locationName
         else:
             return "empty"
+

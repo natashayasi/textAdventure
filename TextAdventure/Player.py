@@ -1,3 +1,5 @@
+import os
+
 from Counter import Counter
 from Interactable import Interactable
 from Location import Location
@@ -10,6 +12,22 @@ class Player:
         self.traitDictionary = {}
         self.counterDictionary = {}
         self.travels = Traversal()
+        self.gameOver = False
+
+    def checkCountersForEndCondition(self):
+        for counter in self.counterDictionary.values():
+            if counter.counter >= 1:
+                self.gameOver = True
+                self.endGame(counter.name)
+            else:
+                print("{} ending not yet reached".format(counter.name))
+
+    def endGame(self, counterName):
+        textfile = "./Text Files/Ending" + counterName + ".txt"
+        if os.path.isfile(textfile):
+            with open(textfile) as file:
+                for line in file:
+                    print(line)
 
     def setTraitTrue(self, traitName):
         if traitName in self.traitDictionary:
@@ -65,10 +83,16 @@ class Player:
         self.refreshTraversal()
         if self.travels.visitLocation(locationName) == True:
             self.updateTraitFromLocation(locationName)
+#            self.checkCountersForEndCondition()
         else:
             print("Couldn't travel to {}\n".format(locationName)) #todo
 
-    def reportTraits(self):
+    def interactWithInteractable(self, interactableName): #probably should be more generic and not point at current location #can double up on interactable counters.
+        self.travels.touchInteractable(interactableName)
+        counterName = self.travels.getInteractableCounterName(interactableName)
+        self.incrementCounter(counterName)
+
+    def reportTraits(self):     #debug function
         for trait in self.traitDictionary.values():
             print(trait.name)
 

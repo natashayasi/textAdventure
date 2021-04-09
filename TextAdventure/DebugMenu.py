@@ -26,34 +26,65 @@ Main Menu
             elif response == "0":
                 break
 
+    def debugPlayMenuStart(self):
+        while True:
+            print ("""
+Start Menu
+    1. Books Start
+    2. Cookware Start
+    3. Keepsakes Start
+    4. No Packing Start
+    5. Patience Start
+            """)
+            response = input("Selct 1 through 5\n")
+            if response == "1":
+                self.player.travelToLocation("BooksStart")
+            elif response == "2":
+                self.player.travelToLocation("CookwareStart")
+            elif response == "3":
+                self.player.travelToLocation("KeepsakesStart")
+            elif response == "4":
+                self.player.travelToLocation("NoPackingStart")
+            elif response == "5":
+                self.player.travelToLocation("PatienceStart")
+            break
+
+
     def debugGameMenu(self):
         while True:
             print("""
 Game Menu
-    1. View Current Location
-    2. Travel By Trait
-    3. Travel By Random
-    4. Travel By Name
-    5. Go Back
-    6. Go Forwards
+    1. Start
+    2. View Current Location
+    3. Travel By Trait
+    4. Travel By Random
+    5. Travel By Name
+    6. Go Back
+    7. Go Forwards
+    8. Touch something
     0. Exit
             """)
-            response = input("What would you like to do?")
+            response = input("What would you like to do? ")
             if response == "1":
-                self.player.reportCurrentLocation()
+                self.debugPlayMenuStart()
             elif response == "2":
+                self.player.reportCurrentLocation()
+            elif response == "3":
                 _input = input("Select a trait to guide your travels.\n")
                 self.player.travelRandomlyByTrait(_input)
-            elif response == "3":
-                self.player.travelRandomly()
             elif response == "4":
+                self.player.travelRandomly()
+            elif response == "5":
                 self.player.reportAccessibleLocations()
                 _input = input("Select an accessible location.\n")
                 self.player.travelToLocation(_input)
-            elif response == "5":
-                print("To Implement")
             elif response == "6":
                 print("To Implement")
+            elif response == "7":
+                print("To Implement")
+            elif response == "8":
+                _input = input("What do you try to touch? ")
+                self.player.interactWithInteractable(_input)
             elif response == "0":
                 break
 
@@ -65,10 +96,11 @@ Settings Menu
     2. Counters
     3. Locations
     4. Interactables
-    5. Reset Game
+    5. Endings
+    6. Reset Game
     0. Exit
             """)
-            response = input("What would you like to do?")
+            response = input("What would you like to do? ")
             if response == "1":
                 self.debugTraitsMenu()
             elif response == "2":
@@ -78,6 +110,8 @@ Settings Menu
             elif response == "4":
                 self.debugInteractablesMenu()
             elif response == "5":
+                self.player.checkCountersForEndCondition()
+            elif response == "6":
                 print("To Be Implemented")
             elif response == "0":
                 break
@@ -93,7 +127,7 @@ Traits Menu
     5. Set Trait False
     0. Exit
             """)
-            response = input("What would you like to do?")
+            response = input("What would you like to do? ")
             if response == "1":
                 self.player.reportTraits()
             elif response == "2":
@@ -118,7 +152,7 @@ Counters Menu
     3. Decrement Counter
     0. Exit
             """)
-            response = input("What would you like to do?")
+            response = input("What would you like to do? ")
             if response == "1":
                 self.player.reportCounters()
             elif response == "2":
@@ -141,7 +175,7 @@ Locations Menu
     5. View Inaccessible Locations
     0. Exit
             """)
-            response = input("What would you like to do?")
+            response = input("What would you like to do? ")
             if response == "1":
                 self.player.reportCurrentLocation()
             elif response == "2":
@@ -163,7 +197,7 @@ Interactables Menu
     2. View Interactables by Location
     0. Exit 
             """)
-            response = input("What would you like to do?")
+            response = input("What would you like to do? ")
             if response == "1":
                  self.player.reportInteractables()
             elif response == "2":
@@ -171,3 +205,16 @@ Interactables Menu
                 self.player.reportInteractablesByLocation(_interactablesResponse)
             elif response == "0":
                 break
+
+def debugEndingMenu(self):
+    while True:
+        print("""
+Ending Menu
+    1. View Endings Reached
+    0. Exit       
+        """)
+        response = input("What would you like to do? ")
+        if response == "1":
+            self.player.checkCountersForEndCondition()
+        elif response == "0":
+            break
