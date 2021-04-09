@@ -14,6 +14,13 @@ class Player:
         self.travels = Traversal()
         self.gameOver = False
 
+    def readTextFromFile(self, fileName):
+        textfile = "./Text Files/" + fileName + ".txt"
+        if os.path.isfile(textfile):
+            with open(textfile,"r",encoding='utf-8') as file:
+                for line in file:
+                    print(line)
+
     def checkCountersForEndCondition(self):
         for counter in self.counterDictionary.values():
             if counter.counter >= 1:

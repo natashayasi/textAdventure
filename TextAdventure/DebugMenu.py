@@ -27,6 +27,8 @@ Main Menu
                 break
 
     def debugPlayMenuStart(self):
+        self.player.readTextFromFile("Start")
+        self.player.readTextFromFile("IntroductoryChapter")
         while True:
             print ("""
 Start Menu
